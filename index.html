@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Tic-tac-toe</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Jogo da Velha</h1>
+    <div class="row border-b">
+      <div id="posicao1" class="col border-r"></div>
+      <div id="posicao2" class="col border-r"></div>
+      <div id="posicao3" class="col"></div>
+    </div>
+    <div class="row border-b">
+      <div id="posicao4" class="col border-r"></div>
+      <div id="posicao5" class="col border-r"></div>
+      <div id="posicao6" class="col"></div>
+    </div>
+    <div class="row">
+      <div id="posicao7" class="col border-r"></div>
+      <div id="posicao8" class="col border-r"></div>
+      <div id="posicao9" class="col"></div>
+    </div>
+  </div>
+
+  <div class="informacoes">
+    <div class="info">
+      <div><h3 id="vezX"><u>Jogador 1 (X)</u></h3></div>
+      <div><h1 id="venceX">0</h1></div>
+    </div>
+    <div class="info2">
+      <div><h3> - </h3></div>
+      <div><h1 id="empata">0</h1></div>
+    </div>
+    <div class="info3">
+      <div><h3 id="vezO">Jogador 2 (O)</h3></div>
+      <div><h1 id="venceO">0</h1></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
