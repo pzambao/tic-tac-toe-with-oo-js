@@ -39,18 +39,23 @@ function JogoDaVelha() {
       let t1 = parseInt(document.querySelector("#empata").innerText);
       const t2 = parseInt(1)
       document.querySelector("#empata").innerText = t1 + t2
-      setTimeout( function () { if(confirm('Velha! Deseja reiniciar o game?' )){
-        for(var i = 1; i <= 9; i++){
-          document.getElementById('posicao' + i).innerHTML = '';
+      setTimeout( swal({
+        title: "Ihhh, deu velha!",
+        text: "Deseja começar uma nova partida?",
+        buttons: true,
+        dangerMode: true
+      }).then((ok) => {
+        if(ok){
+          vez = 0;
+          for(var i = 1; i <= 9; i++){
+          document.getElementById('posicao' + i).innerHTML = ''; }
         }
-      }}, 130);
-      vez = 0;
-      return velha;
+      }), 130);
     }
   }
 }
 
-function Tabuleiro() {  
+function Tabuleiro(){  
   this.espacos = Array.from(document.querySelectorAll('.col'));
   this.procuraVencedor = function(){
     const combinacoesVencedor = [
@@ -70,26 +75,33 @@ function Tabuleiro() {
       this.espacos[comboVencedor[0]].innerText == this.espacos[comboVencedor[1]].innerText &&
       this.espacos[comboVencedor[1]].innerText == this.espacos[comboVencedor[2]].innerText;
 
-      if ((ehComboVencedor) && (vencedor == false)) {
+      if ((ehComboVencedor) && (vencedor == false)){
         vencedor = true;
         const jogadorVencedor = this.espacos[comboVencedor[0]].innerText; 
         let g1 = parseInt(document.querySelector("#vence" + jogadorVencedor).innerText);
         const g2 = parseInt(1);
         document.querySelector("#vence" + jogadorVencedor).innerText = g1 + g2;
-        setTimeout( function () { if(confirm('O jogador ' + jogadorVencedor + ' venceu! Deseja reiniciar o game?' )){
-          for(var i = 1; i <= 9; i++){
-            document.getElementById('posicao' + i).innerHTML = '';
-          }
-        vez = 0;
-        }}, 130);
+
+        setTimeout( swal({
+          title: "O jogador " + jogadorVencedor + " venceu!",
+          text: "Deseja começar uma nova partida?",
+          buttons: true,
+          dangerMode: true
+        }).then((ok) => {
+          if(ok){
+            vez = 0;
+            for(var i = 1; i <= 9; i++){
+            document.getElementById('posicao' + i).innerHTML = '';}
+          } 
+        }), 130);
+      
       }    
     });
   };
 }
 
-
 function Jogador1(tabuleiro) {
-  this.mudaVez = function(index) {
+  this.mudaVez = function(index){
     console.log(vez)
     tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez))
   }
@@ -104,7 +116,7 @@ function Jogador1(tabuleiro) {
 }
 
 function Jogador2(tabuleiro) {
-  this.mudaVez = function() {
+  this.mudaVez = function(){
     console.log(vez)
     tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez2))
   }

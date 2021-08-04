@@ -70,3 +70,7 @@ body{
   float: left;
   width: 150px;
 }
+
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.87);
+}
