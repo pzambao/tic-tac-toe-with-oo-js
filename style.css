@@ -42,10 +42,6 @@ body{
   border-right: 5px solid;
 }
 
-.aa:hover{
-  background-color: red;
-}
-
 .informacoes {
   width: 390px;
   height: 320px;
@@ -54,17 +50,18 @@ body{
   text-align: center;
 }
 
-
 .info {
   color: white;
   float: left;
   width: 150px;
 }
+
 .info2 {
   color: white;
   float: left;
   width: 80px;
-}
+} 
+
 .info3 {
   color: white;
   float: left;
