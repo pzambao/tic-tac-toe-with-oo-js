@@ -10,7 +10,7 @@ body{
   width: 320px;
   height: 320px;
   margin: auto;
-  margin-top: 170px;
+  margin-top: 40px;
 }
 
 .container h1 {
@@ -44,7 +44,6 @@ body{
 
 .informacoes {
   width: 390px;
-  height: 320px;
   margin: auto;
   margin-top: 120px;
   text-align: center;
@@ -71,3 +70,55 @@ body{
 .swal-overlay {
   background-color: rgba(0, 0, 0, 0.87);
 }
+
+span{
+  padding-left: 12px;
+}
+.menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 11px;
+}
+
+.menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+.menu b {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #2468fa;
+}
+
+.menu .botaoFechar {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .menu {padding-top: 15px;}
+  .menu a {font-size: 18px;}
+}
+

@@ -77,7 +77,7 @@ function Jogadores(){ // função que recebe o nome dos jogadores
     .then((value) => {
       jogO = value;
       if(value == '' || value == null ){ // caso não receba valor será definido como padrão "Jogador2 (O)"
-        document.querySelector("#vezO").innerHTML = "Jogador2 (X)";
+        document.querySelector("#vezO").innerHTML = "Jogador2 (O)";
       }else{
         document.querySelector("#vezO").innerHTML = jogO + " (O)";
       }

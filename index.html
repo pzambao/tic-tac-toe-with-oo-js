@@ -9,6 +9,16 @@
   <title>Tic-tac-toe</title>
 </head>
 <body>
+  <h1 id="sanduiche"><span onclick="abrirMenu()">&#9776; </span></h1>
+  <div id="idmenu" class="menu">
+    <a href="javascript:void(0)" class="botaoFechar" onclick="fecharMenu()">&times;</a>
+    <b>MENU</b><br/>
+    <a onclick="alteraJogadores()">Alterar nome dos jogadores</a>
+    <a onclick="resetaTabuleiro()">Resetar jogadas</a>
+    <a onclick="resetaPlacar()">Resetar placar</a>
+    <a onclick="resetaJogo()">Resetar o jogo</a>
+  </div>
+
   <div class="container">
     <h1>Jogo da Velha</h1>
     <div class="row border-b">
@@ -43,6 +53,7 @@
     </div>
   </div>
 
+  <script src="menu.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
