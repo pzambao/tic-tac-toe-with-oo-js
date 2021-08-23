@@ -16,16 +16,18 @@ function JogoDaVelha() {
   
   this.init = function() {
     const config = { childList: true }; // armazena em config qual o tipo de monitoramento do mutation observer
-    const observer = new MutationObserver(() => mudaVez()); // chama em observer a função Mutation Observer e passa quem será monitorado
+    const observer = new MutationObserver(() => mudaVez()); // chama em observer o objeto Mutation Observer e passa a parte do DOM que será observada
     tabuleiro.espacos.forEach((el) => // mapeia todas as divs com a classe ".col" 
     observer.observe(el, config)); // define el como "responsável" pelo monitoramento e avisa qual tipo de monitoramento.
-    mudaVez(); // chama a função mudaVez
-  }
-
+    mudaVez();
+    // chama a função mudaVez
+  };
+  
   //declaração do método(ação)
   function mudaVez(){
   vencedor = false;
   velha = false;
+
     if (tabuleiro.procuraVencedor()){ // sempre que mudar a vez ele chama o procuraVencedor
       return;
     }
@@ -44,16 +46,11 @@ function JogoDaVelha() {
         buttons: true,
         dangerMode: true
       }).then((ok) => { 
-        if(ok){ // caso selecione começar uma nova partida
-          vez = 0; // define a vez como 0
-          for(var i = 1; i <= 9; i++){ // um for percorrerá todos os espaços do tabuleiro
-            // reseta o conteudo das posições percorridas através do ID (X e O no caso)
-            document.getElementById('posicao' + i).innerHTML = ''; 
-          }
+        if(ok){ 
+          resetaTabuleiro(); 
         }
-      })
+      });
     }
-
     vez++; // adiciona +1 a vez para que o jogo possa continuar
   }
 }
@@ -67,9 +64,9 @@ function Jogadores(){ // função que recebe o nome dos jogadores
   .then((value) => {
     jogX = value;
     if(value == '' || value == null ){ // caso não receba valor será definido como padrão "Jogador1 (X)"
-      document.querySelector("#vezX").innerHTML = "<u>Jogador1 (X)</u>";
+      document.querySelector("#vezX").innerHTML = document.querySelector("#vezX").innerHTML;
     }else{
-      document.querySelector("#vezX").innerHTML = "<u>"+ jogX + " (X)</u>";
+      document.querySelector("#vezX").innerHTML = jogX + " (X)";
     }
     swal("Digite o nome do Jogador 2 (O):", {
       content: "input",
@@ -77,7 +74,7 @@ function Jogadores(){ // função que recebe o nome dos jogadores
     .then((value) => {
       jogO = value;
       if(value == '' || value == null ){ // caso não receba valor será definido como padrão "Jogador2 (O)"
-        document.querySelector("#vezO").innerHTML = "Jogador2 (O)";
+        document.querySelector("#vezO").innerHTML = document.querySelector("#vezO").innerHTML;
       }else{
         document.querySelector("#vezO").innerHTML = jogO + " (O)";
       }
@@ -117,11 +114,7 @@ function Tabuleiro(){
           dangerMode: true
         }).then((ok) => { 
           if(ok){ // ao selecionar para começar uma nova partida
-            vez = 0; // a vez irá ser setada como 0 novamente
-            for(var i = 1; i <= 9; i++){ // um for percorrerá todos os espaços do tabuleiro
-              // reseta o conteudo das posições percorridas através do ID (X e O no caso)
-              document.getElementById('posicao' + i).innerHTML = '';
-            } 
+            resetaTabuleiro();// a vez irá ser setada como 0 novamente
           } 
         });
       }    
@@ -130,17 +123,19 @@ function Tabuleiro(){
 }
 
 function Jogador1(tabuleiro) {
+  
   this.mudaVez = function(){ 
     // console.log(vez)
     // através do monitoramento do mutationObserver, ele detecta a div que foi clicada e chama a função digitaVez
-    tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez)) 
-  }
+    // ao ocorrer um MouseEvent(click) em algum dos espaços do 'el', ele chama a função digitaVez dentro do espaço clicado
+    tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez));
+  };
   function digitaVez(event){ // função que insere a jogada na div em questão
     if(event.target.innerText == ''){ // verifica se já não existe valor dentro da div
-      event.target.innerText = 'X'; // insere através do innerText o X na posição
+      event.target.innerText = 'X'; // insere através do innerText o X na posição que disparou o evento através do target
       tabuleiro.espacos.forEach(el => el.removeEventListener('click', digitaVez)); // remove a possibilidade do jogador X clicar novamente 
-      document.querySelector("#vezO").innerHTML = '<u>'+ document.querySelector("#vezO").innerHTML +'</u>' // sublinha o jogador O indicando que próximo jogador é ele
-      document.querySelector("#vezX").innerText = document.querySelector("#vezX").innerText // remove o sublinhado de sua vez
+      document.querySelector(".o").style.color = "white";  // sublinha o jogador O indicando que próximo jogador é ele
+      document.querySelector(".x").style.color = "#ffffffa8"; // remove o sublinhado de sua vez
     }
   }
 }
@@ -149,14 +144,14 @@ function Jogador2(tabuleiro) {
   this.mudaVez = function(){
     // console.log(vez)
     // através do monitoramento do mutationObserver, ele detecta a div que foi clicada e chama a função digitaVez
-    tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez2))
-  }
+    tabuleiro.espacos.forEach(el => el.addEventListener('click', digitaVez2));
+  };
   function digitaVez2(event){ // função que insere a jogada na div em questão
     if(event.target.innerText == ''){ // verifica se já não existe valor dentro da div
       event.target.innerText = 'O'; // insere através do innerText o X na posição
-      tabuleiro.espacos.forEach(el => el.removeEventListener('click', digitaVez2)) // remove a possibilidade do jogador O clicar novamente 
-      document.querySelector("#vezX").innerHTML = '<u>'+ document.querySelector("#vezX").innerHTML +'</u>' // sublinha o jogador X indicando que próximo jogador é ele
-      document.querySelector("#vezO").innerText = document.querySelector("#vezO").innerText // remove o sublinhado de sua vez
+      tabuleiro.espacos.forEach(el => el.removeEventListener('click', digitaVez2)); // remove a possibilidade do jogador O clicar novamente 
+      document.querySelector(".o").style.color = "#ffffffa8";  // sublinha o jogador O indicando que próximo jogador é ele
+      document.querySelector(".x").style.color = "white"; // remove o sublinhado de sua vez
     }
   }
 }

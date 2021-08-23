@@ -23,6 +23,7 @@ body{
 }
 
 .col {
+  cursor: pointer;
   color: white;
   height: 100px;
   width: 100px;
@@ -56,13 +57,13 @@ body{
 }
 
 .info2 {
-  color: white;
+  color: #ffffffa8;
   float: left;
   width: 80px;
 } 
 
 .info3 {
-  color: white;
+  color: #ffffffa8;
   float: left;
   width: 150px;
 }
@@ -88,6 +89,7 @@ span{
 }
 
 .menu a {
+  cursor: pointer;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 22px;
@@ -95,6 +97,8 @@ span{
   display: block;
   transition: 0.3s;
 }
+
+
 
 .menu b {
   padding: 8px 8px 8px 32px;
@@ -120,5 +124,9 @@ span{
 @media screen and (max-height: 450px) {
   .menu {padding-top: 15px;}
   .menu a {font-size: 18px;}
+}
+
+#sanduiche{
+  cursor: pointer;
 }
 
