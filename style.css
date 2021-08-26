@@ -2,8 +2,9 @@
 
 body{
   font-family: 'Raleway', sans-serif;
-  background-color: black;
+  background-color: #131516;
   color: white;
+  transition: background-color 1s;
 }
 
 .container {
@@ -93,18 +94,16 @@ span{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 22px;
-  color: #000000;
+  color: #131516;
   display: block;
   transition: 0.3s;
 }
-
-
 
 .menu b {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #000000;
+  color: #131516;
   display: block;
   transition: 0.3s;
 }
@@ -130,3 +129,53 @@ span{
   cursor: pointer;
 }
 
+.dark-mode{
+  filter: invert(100%)
+}
+
+.switch {
+  display: inline-flex;
+}
+
+.switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switch input[type=checkbox]:checked + label {
+  background: #131516;
+}
+
+.switch input[type=checkbox]:checked + label::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+
+.switch label {
+  cursor: pointer;
+  width: 48px;
+  height: 24px;
+  background: #131516;
+  display: block;
+  border-radius: 24px;
+  position: relative;
+}
+
+.switch label::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+#swichDarkMode{
+  margin-bottom: 25px;
+  position: absolute;
+  bottom:   0;
+}

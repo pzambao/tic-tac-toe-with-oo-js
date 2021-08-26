@@ -9,7 +9,6 @@ jogoDaVelha.init();
 
 function JogoDaVelha() {
   //declaração dos atributos(caracteristica)
-  const jogadores = new Jogadores();
   const tabuleiro = new Tabuleiro();
   const jogador1 = new Jogador1(tabuleiro);
   const jogador2 = new Jogador2(tabuleiro);
@@ -22,11 +21,11 @@ function JogoDaVelha() {
     mudaVez();
     // chama a função mudaVez
   };
-  
+
   //declaração do método(ação)
   function mudaVez(){
-  vencedor = false;
-  velha = false;
+    vencedor = false;
+    velha = false;
 
     if (tabuleiro.procuraVencedor()){ // sempre que mudar a vez ele chama o procuraVencedor
       return;
@@ -36,7 +35,7 @@ function JogoDaVelha() {
     } else { // caso contrário (impar)
       jogador2.mudaVez();
     }
-    
+
     if ((vez == 9) && (vencedor == false)){ // se a vez for 9 e não houver um vencedor, significa que deu velha
       velha = true;
       document.querySelector("#empata").innerText++; // lógica que acrescenta +1 ao placa da velha
@@ -51,35 +50,8 @@ function JogoDaVelha() {
         }
       });
     }
-    vez++; // adiciona +1 a vez para que o jogo possa continuar
+    vez++; // adiciona +1 a vez para que o jogo possa continuar // adiciona +1 a vez para que o jogo possa continuar
   }
-}
-
-function Jogadores(){ // função que recebe o nome dos jogadores
-  this.jogX = '';
-  this.jogO = '';
-  swal("Digite o nome do Jogador 1 (X):", {
-    content: "input",
-  })
-  .then((value) => {
-    jogX = value;
-    if(value == '' || value == null ){ // caso não receba valor será definido como padrão "Jogador1 (X)"
-      document.querySelector("#vezX").innerHTML = document.querySelector("#vezX").innerHTML;
-    }else{
-      document.querySelector("#vezX").innerHTML = jogX + " (X)";
-    }
-    swal("Digite o nome do Jogador 2 (O):", {
-      content: "input",
-    })
-    .then((value) => {
-      jogO = value;
-      if(value == '' || value == null ){ // caso não receba valor será definido como padrão "Jogador2 (O)"
-        document.querySelector("#vezO").innerHTML = document.querySelector("#vezO").innerHTML;
-      }else{
-        document.querySelector("#vezO").innerHTML = jogO + " (O)";
-      }
-    });
-  });
 }
 
 function Tabuleiro(){  

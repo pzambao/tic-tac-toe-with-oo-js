@@ -8,17 +8,22 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Tic-tac-toe</title>
 </head>
-<body>
+<body onload="jogadores()">
   <h1 id="sanduiche"><span onclick="abrirMenu()">&#9776; </span></h1>
   <div id="idmenu" class="menu">
     <a href="javascript:void(0)" class="botaoFechar" onclick="fecharMenu()">&times;</a>
     <b>MENU</b><br/>
-    <a onclick="Jogadores()">Alterar nome dos jogadores</a>
+    <a onclick="jogadores()">Alterar nome dos jogadores</a>
     <a onclick="resetaJogadas()">Resetar jogadas</a>
     <a onclick="resetaPlacar()">Resetar placar</a>
     <a onclick="resetaJogo()">Resetar o jogo</a>
+    <a id="swichDarkMode">
+      <div class="switch">
+        Dark mode<input type="checkbox" id="toggleAll" onclick="darkMode()"/>
+        <label for="toggleAll"></label>
+      </div> 
+    </a>
   </div>
-
   <div class="container">
     <h1>Jogo da Velha</h1>
     <div class="row border-b">
@@ -52,6 +57,8 @@
       <div><h1 id="venceO">0</h1></div>
     </div>
   </div>
+
+
 
   <script src="menu.js"></script>
   <script src="script.js"></script>

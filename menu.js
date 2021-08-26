@@ -8,7 +8,7 @@ function resetaJogadas(){
     if(ok){ // caso selecione começar uma nova partida
       resetaTabuleiro();
     }
-  })
+  });
 }
 
 function resetaPlacar(){
@@ -21,7 +21,7 @@ function resetaPlacar(){
     if(ok){ 
       resetaPontuacao();
     }
-  })
+  });
 }
 
 function resetaJogo(){
@@ -35,5 +35,9 @@ function resetaJogo(){
       resetaPontuacao();
       resetaTabuleiro();
     }
-  })
+  });
+}
+
+function darkMode(){
+  document.documentElement.classList.toggle("dark-mode");
 }
