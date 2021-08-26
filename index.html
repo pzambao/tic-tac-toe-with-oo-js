@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <title>Tic-tac-toe</title>
-</head>
-<body onload="jogadores()">
-  <h1 id="sanduiche"><span onclick="abrirMenu()">&#9776; </span></h1>
-  <div id="idmenu" class="menu">
-    <a href="javascript:void(0)" class="botaoFechar" onclick="fecharMenu()">&times;</a>
-    <b>MENU</b><br/>
-    <a onclick="jogadores()">Alterar nome dos jogadores</a>
-    <a onclick="resetaJogadas()">Resetar jogadas</a>
-    <a onclick="resetaPlacar()">Resetar placar</a>
-    <a onclick="resetaJogo()">Resetar o jogo</a>
-    <a id="swichDarkMode">
-      <div class="switch">
-        Dark mode<input type="checkbox" id="toggleAll" onclick="darkMode()"/>
-        <label for="toggleAll"></label>
-      </div> 
-    </a>
-  </div>
-  <div class="container">
-    <h1>Jogo da Velha</h1>
-    <div class="row border-b">
-      <div id="posicao1" class="col border-r"></div>
-      <div id="posicao2" class="col border-r"></div>
-      <div id="posicao3" class="col"></div>
-    </div>
-    <div class="row border-b">
-      <div id="posicao4" class="col border-r"></div>
-      <div id="posicao5" class="col border-r"></div>
-      <div id="posicao6" class="col"></div>
-    </div>
-    <div class="row">
-      <div id="posicao7" class="col border-r"></div>
-      <div id="posicao8" class="col border-r"></div>
-      <div id="posicao9" class="col"></div>
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Tic-tac-toe</title>
 
-  <div class="informacoes">
-    <div class="info x">
-      <div><h3 id="vezX">Jogador 1 (X)</h3></div>
-      <div><h1 id="venceX">0</h1></div>
-    </div>
-    <div class="info2">
-      <div><h3> - </h3></div>
-      <div><h1 id="empata">0</h1></div>
-    </div>
-    <div class="info3 o">
-      <div><h3 id="vezO">Jogador 2 (O)</h3></div>
-      <div><h1 id="venceO">0</h1></div>
-    </div>
-  </div>
+  </head>
 
+  <body onload="jogadores()">
 
+    <h1 id="sanduiche"><span onclick="abrirMenu()">&#9776; </span></h1>
+    <div id="idmenu" class="menu">
+      <a href="javascript:void(0)" class="botaoFechar" onclick="fecharMenu()">&times;</a>
+      <b>MENU</b><br/>
+      <a onclick="jogadores()">Alterar nome dos jogadores</a>
+      <a onclick="resetaJogadas()">Resetar jogadas</a>
+      <a onclick="resetaPlacar()">Resetar placar</a>
+      <a onclick="resetaJogo()">Resetar o jogo</a>
+      <a id="swichDarkMode">
+        <div class="switch">
+          Dark mode<input type="checkbox" checked id="toggleAll" onclick="darkMode()"/>
+          <label for="toggleAll"></label>
+        </div> 
+      </a>
+    </div>
 
-  <script src="menu.js"></script>
-  <script src="script.js"></script>
-  <script src="actions.js"></script>
-</body>
+    <div class="container">
+      <h1>Jogo da Velha</h1>
+      <div class="row border-b">
+        <div id="posicao1" class="col border-r"></div>
+        <div id="posicao2" class="col border-r"></div>
+        <div id="posicao3" class="col"></div>
+      </div>
+      <div class="row border-b">
+        <div id="posicao4" class="col border-r"></div>
+        <div id="posicao5" class="col border-r"></div>
+        <div id="posicao6" class="col"></div>
+      </div>
+      <div class="row">
+        <div id="posicao7" class="col border-r"></div>
+        <div id="posicao8" class="col border-r"></div>
+        <div id="posicao9" class="col"></div>
+      </div>
+    </div>
+
+    <div class="informacoes">
+      <div class="info x">
+        <div><h3 id="vezX">Jogador 1 (X)</h3></div>
+        <div><h1 id="venceX">0</h1></div>
+      </div>
+      <div class="info2">
+        <div><h3> - </h3></div>
+        <div><h1 id="empata">0</h1></div>
+      </div>
+      <div class="info3 o">
+        <div><h3 id="vezO">Jogador 2 (O)</h3></div>
+        <div><h1 id="venceO">0</h1></div>
+      </div>
+    </div>
+    
+    <script src="script/menu.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/actions.js"></script>
+  </body>
 </html>
